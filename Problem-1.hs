@@ -1,3 +1,4 @@
 myLast :: [a] -> a
+myLast [] = error "No last element for empty lists!"
 myLast [x] = x
-myLast (x:xs) = myLast xs
+myLast (_:xs) = myLast xs
