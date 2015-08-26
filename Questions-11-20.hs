@@ -12,10 +12,9 @@ rotate xs r
     r' = r + length xs
 
 -- Problem 20: Remove the K'th element from a list
-removeAt :: Int -> [a] -> (a, [a])
-removeAt _ [] = error "removeAt: the list should not be empty"
-removeAt n (x:xs)
-  | n == 1 = (x, xs)
-  | n > 1 = (element, x : xs')
+removeAt :: Int -> [a] -> (Maybe a, [a])
+removeAt _ [] = (Nothing, [])
+removeAt 1 (x:xs) = (Just x, xs)
+removeAt k (x:xs) = (a, x : rest)
   where
-    (element,xs') = removeAt (n - 1) xs
+    (a,rest) = removeAt (k - 1) xs
